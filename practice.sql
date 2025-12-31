@@ -1,4 +1,4 @@
-#30-12-2025
+#29-12-2025
 -- Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
 SELECT DISTINCT CITY FROM STATION
 WHERE ID % 2 = 0;
@@ -44,7 +44,7 @@ WHERE LEFT(CITY,1) NOT IN ('A','E','I','O','U');
 SELECT DISTINCT CITY FROM STATION 
 WHERE CITY NOT REGEXP '^[aeiouAEIOU]' OR CITY NOT REGEXP '[aeiouAEIOU]$';
 
-#31-12-2025
+#30-12-2025
 -- Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
 SELECT NAME FROM STUDENTS
 WHERE MARKS > 75

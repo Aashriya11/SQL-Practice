@@ -70,3 +70,22 @@ SELECT CONCAT('There are a total of ', COUNT(Occupation), ' ', LOWER(Occupation)
 FROM OCCUPATIONS
 GROUP BY Occupation
 ORDER BY COUNT(Occupation) ASC, Occupation ASC;
+
+#07-01-2025
+-- Query the total population of all cities in CITY where District is California.
+SELECT SUM(POPULATION) FROM CITY
+WHERE DISTRICT = "CalIfornia";
+
+-- Query the average population for all cities in CITY, rounded down to the nearest integer.
+SELECT FLOOR(AVG(POPULATION)) FROM CITY;
+
+-- Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+SELECT SUM(POPULATION) FROM CITY
+WHERE COUNTRYCODE = "JPN";
+
+-- Query the difference between the maximum and minimum populations in CITY.
+SELECT MAX(POPULATION) - MIN(POPULATION) AS DIFFERENCE FROM CITY;
+
+-- Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+-- Write a query calculating the amount of error (i.e.: actual - miscalculated average monthly salaries), and round it up to the next integer.
+SELECT CEIL(AVG(SALARY)-AVG(REPLACE(SALARY,0,''))) FROM EMPLOYEES;

@@ -89,3 +89,5 @@ SELECT MAX(POPULATION) - MIN(POPULATION) AS DIFFERENCE FROM CITY;
 -- Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
 -- Write a query calculating the amount of error (i.e.: actual - miscalculated average monthly salaries), and round it up to the next integer.
 SELECT CEIL(AVG(SALARY)-AVG(REPLACE(SALARY,0,''))) FROM EMPLOYEES;
+ --- CEIL(): Rounds the result of each average (actual and miscalculated) up to the next whole number.
+ --- NULLIF(SALARY, '0'): Replaces any '0' in the salary with NULL. When AVG() encounters NULL values, it ignores them, effectively removing the zeros from the calculation.

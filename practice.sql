@@ -54,7 +54,7 @@ ORDER BY RIGHT(NAME,3), ID ASC;
 SELECT NAME FROM EMPLOYEE
 ORDER BY NAME ASC;
 
-#03-01-2025
+#03-01-2026
 --Generate the following two result sets:
 
 -- 1.Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
@@ -71,7 +71,7 @@ FROM OCCUPATIONS
 GROUP BY Occupation
 ORDER BY COUNT(Occupation) ASC, Occupation ASC;
 
-#07-01-2025
+#07-01-2026
 -- Query the total population of all cities in CITY where District is California.
 SELECT SUM(POPULATION) FROM CITY
 WHERE DISTRICT = "CalIfornia";
@@ -91,3 +91,11 @@ SELECT MAX(POPULATION) - MIN(POPULATION) AS DIFFERENCE FROM CITY;
 SELECT CEIL(AVG(SALARY)-AVG(REPLACE(SALARY,0,''))) FROM EMPLOYEES;
  --- CEIL(): Rounds the result of each average (actual and miscalculated) up to the next whole number.
  --- NULLIF(SALARY, '0'): Replaces any '0' in the salary with NULL. When AVG() encounters NULL values, it ignores them, effectively removing the zeros from the calculation.
+
+#09-01-2026
+-- Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+-- Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT City.Name
+FROM City
+INNER JOIN Country ON City.CountryCode = Country.Code
+WHERE Country.Continent = 'Africa';

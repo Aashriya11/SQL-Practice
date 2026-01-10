@@ -86,7 +86,8 @@ WHERE COUNTRYCODE = "JPN";
 -- Query the difference between the maximum and minimum populations in CITY.
 SELECT MAX(POPULATION) - MIN(POPULATION) AS DIFFERENCE FROM CITY;
 
--- Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+-- Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. 
+-- She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
 -- Write a query calculating the amount of error (i.e.: actual - miscalculated average monthly salaries), and round it up to the next integer.
 SELECT CEIL(AVG(SALARY)-AVG(REPLACE(SALARY,0,''))) FROM EMPLOYEES;
  --- CEIL(): Rounds the result of each average (actual and miscalculated) up to the next whole number.
@@ -99,3 +100,21 @@ SELECT City.Name
 FROM City
 INNER JOIN Country ON City.CountryCode = Country.Code
 WHERE Country.Continent = 'Africa';
+
+#10-01-2026
+-- Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+-- Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT COUNTRY.Continent, FLOOR(AVG(CITY.Population)) AS Average_Population 
+FROM CITY 
+INNER JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code
+GROUP BY COUNTRY.Continent;
+
+-- Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade 
+-- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. 
+-- If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+SELECT
+CASE WHEN gr.Grade < 8 THEN NULL
+WHEN gr.Grade >= 8 THEN st.Name END,
+gr.Grade, st.marks FROM students st JOIN grades gr
+WHERE st.marks BETWEEN gr.min_mark AND gr.max_mark
+ORDER BY gr.grade DESC, st.name ASC;

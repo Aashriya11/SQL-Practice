@@ -117,4 +117,4 @@ CASE WHEN gr.Grade < 8 THEN NULL
 WHEN gr.Grade >= 8 THEN st.Name END,
 gr.Grade, st.marks FROM students st JOIN grades gr
 WHERE st.marks BETWEEN gr.min_mark AND gr.max_mark
-ORDER BY gr.grade DESC, st.name ASC;
+ORDER BY gr.grade DESC, st.name ASC

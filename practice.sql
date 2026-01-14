@@ -132,4 +132,4 @@ JOIN Difficulty D ON C.difficulty_level = D.difficulty_level
 WHERE S.score = D.score
 GROUP BY H.hacker_id, H.name
 HAVING COUNT(S.challenge_id) > 1
-ORDER BY COUNT(S.challenge_id) DESC, H.hacker_id ASC
+ORDER BY COUNT(S.challenge_id) DESC, H.hacker_id ASC;

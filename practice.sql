@@ -130,6 +130,11 @@ JOIN Submissions S ON H.hacker_id = S.hacker_id
 JOIN Challenges C ON S.challenge_id = C.challenge_id
 JOIN Difficulty D ON C.difficulty_level = D.difficulty_level
 WHERE S.score = D.score
+
+#18-01-2026
+-- Query a count of the number of cities in CITY having a Population larger than 100,000.
+SELECT COUNT(*) FROM CITY
+WHERE POPULATION > 100000;
 GROUP BY H.hacker_id, H.name
 HAVING COUNT(S.challenge_id) > 1
 ORDER BY COUNT(S.challenge_id) DESC, H.hacker_id ASC;

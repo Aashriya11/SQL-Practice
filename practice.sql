@@ -164,3 +164,10 @@ SELECT ROUND(LONG_W,4) FROM STATION
 WHERE LAT_N > 38.7780 
 ORDER BY LAT_N ASC
 LIMIT 1;
+
+#29-01-2026
+-- Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to  decimal places.
+SELECT TRUNCATE(LAT_N,4) FROM STATION
+WHERE LAT_N < 137.2345
+ORDER BY LAT_N DESC
+LIMIT 1;

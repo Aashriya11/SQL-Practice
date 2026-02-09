@@ -167,7 +167,7 @@ LIMIT 1;
 
 #29-01-2026
 -- Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to  decimal places.
-SELECT TRUNCATE(LAT_N,4) FROM STATION
+SELECT TRUNCATE(LAT_N,4) FROM STATION;
 
 #09-02-2026 
 -- We define an employee's total earnings to be their monthly  worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. 

@@ -192,3 +192,11 @@ JOIN Manager M ON C.company_code = M.company_code
 JOIN Employee E ON C.company_code = E.company_code
 GROUP BY C.company_code, C.founder
 ORDER BY C.company_code ASC;
+
+#12-02-2026
+-- Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+-- Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT SUM(CITY.POPULATION) 
+FROM CITY 
+JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE 
+WHERE COUNTRY.CONTINENT = 'Asia';
